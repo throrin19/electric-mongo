@@ -15,10 +15,10 @@ var defaultSettings = {
 
 var config = {
     development : _.extend({}, defaultSettings, {
-        end : 'development'
+        env : 'development'
     }),
     production : _.extend({}, defaultSettings, {
-        end : 'production'
+        env : 'production'
     })
 };
 
