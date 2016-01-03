@@ -34,8 +34,10 @@ app.on('ready', function ready() {
     // and load the index.html of the app.
     mainWindow.loadURL('file://' + __dirname + '/ui/index.html');
 
+    console.log(config);
+
     // Open the DevTools.
-    if (config.env === 'development') {
+    if (config.env == 'development') {
         mainWindow.webContents.openDevTools();
     }
 

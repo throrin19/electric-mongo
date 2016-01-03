@@ -1,7 +1,7 @@
 'use strict';
 
 var _           = require('underscore'),
-    path        = require('path'),
+    path        = require('path-extra'),
     packageJson = require('../../package.json');
 
 var defaultSettings = {

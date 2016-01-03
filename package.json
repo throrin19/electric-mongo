@@ -23,6 +23,7 @@
   "homepage": "https://github.com/throrin19/electric-mongo#readme",
   "dependencies": {
     "electron-prebuilt": "^0.36.2",
+    "path-extra": "^3.0.0",
     "underscore": "^1.8.3"
   }
 }
