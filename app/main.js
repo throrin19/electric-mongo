@@ -38,7 +38,9 @@ app.on('ready', function ready() {
 
     // Open the DevTools.
     if (config.env == 'development') {
-        mainWindow.webContents.openDevTools();
+        mainWindow.webContents.openDevTools({
+            detach : true
+        });
     }
 
     // Emitted when the window is closed.
