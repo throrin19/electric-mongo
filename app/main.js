@@ -3,7 +3,7 @@
 const env           = process.env.NODE_ENV;
 const electron      = require('electron');
 const app           = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const window        = require('electron-window');
 const config        = require('./config/appConfig')(env);
 
 // Report crashes to our server.
@@ -26,7 +26,7 @@ app.on('window-all-closed', function closeAll() {
 // initialization and is ready to create browser windows.
 app.on('ready', function ready() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({
+    mainWindow = window.createWindow({
         width   : 1100,
         height  : 700
     });
