@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/throrin19/electric-mongo#readme",
   "dependencies": {
-    "electron-prebuilt": "^0.36.2"
+    "electron-prebuilt": "^0.36.2",
+    "underscore": "^1.8.3"
   }
 }
