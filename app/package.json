@@ -2,7 +2,7 @@
   "name": "electric-mongo",
   "version": "0.0.1",
   "description": "MongoDD client with Electron",
-  "main": "app/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
