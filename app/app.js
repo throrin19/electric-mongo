@@ -1,0 +1,68 @@
+'use strict';
+
+const electron      = require('electron');
+const BrowserWindow = electron.BrowserWindow;
+const ipcMain       = electron.ipcMain;
+const config        = require('./config/appConfig')(process.env.NODE_ENV);
+
+var _       = require('underscore'),
+    async   = require('async'),
+    fs      = require('fs');
+
+module.exports = {
+    init : function init() {
+        this.initConfig();
+        this.initMainWindow();
+    },
+    initMainWindow : function initMainWindow() {
+        this.mainWindow = new BrowserWindow({
+                width: 1100,
+                height: 700
+            });
+        this.subWindows = [];
+        this.webContents = this.mainWindow.webContents;
+
+        this.attachEvents();
+        this.attachIpc();
+
+        // and load the index.html of the app.
+        this.mainWindow.loadURL('file://' + __dirname + '/renderer/index.html');
+    },
+    attachEvents : function attachEvents() {
+        this.mainWindow.on('close', function close() {
+            _.each(this.subWindows, function (name) {
+                this.webContents.send(name + ':destroy');
+            }, this);
+            this.subWindows = null;
+        }.bind(this));
+        this.mainWindow.on('closed', function () {
+            this.mainWindow = null;
+        }.bind(this));
+    },
+    attachIpc : function initIpc() {
+        ipcMain.on('add:window', function (event, name) {
+            if (_.contains(this.subWindows, name)) {
+                this.webContents.send(name + ':destroy');
+                this.subWindows = _.without(subWindows, name);
+            }
+            this.subWindows.push(name);
+        }.bind(this));
+    },
+    initConfig : function initConfig() {
+        async.series({
+            createDir : function testFile(done) {
+                fs.access(config.configDir, fs.R_OK | fs.W_OK, function (err) {
+                    if (err) {
+                        fs.mkdir(config.configDir, done);
+                        return;
+                    }
+                    done();
+                });
+            }
+        }, function (err) {
+            if (err) {
+                console.error(err);
+            }
+        });
+    }
+};
