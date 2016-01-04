@@ -1,29 +1,15 @@
 'use strict';
 
-var remote = require('remote');
-var Menu = remote.require('menu');
-var MenuItem = remote.require('menu-item');
+const remote        = require('electron').remote;
+const BrowserWindow = remote.BrowserWindow;
 
-// Build our new menu
-var menu = new Menu()
-menu.append(new MenuItem({
-    label: 'Delete',
-    click: function() {
-        // Trigger an alert when menu item is clicked
-        alert('Deleted')
-    }
-}));
-menu.append(new MenuItem({
-    label: 'More Info...',
-    click: function() {
-        // Trigger an alert when menu item is clicked
-        alert('Here is more information')
-    }
-}));
+var win = new BrowserWindow({
+    width  : 800,
+    height : 400
+});
 
-// Add the listener
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('.sidebar').addEventListener('click', function (event) {
-        menu.popup(remote.getCurrentWindow());
-    });
+win.loadURL('file://' + __dirname + '/servers.html');
+
+win.on('close', function () {
+    win = null;
 });

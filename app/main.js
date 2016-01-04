@@ -28,7 +28,8 @@ app.on('ready', function ready() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width   : 1100,
-        height  : 700
+        height  : 700,
+        'accept-first-mouse': true
     });
 
     // and load the index.html of the app.
