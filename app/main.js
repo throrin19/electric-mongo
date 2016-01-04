@@ -3,7 +3,7 @@
 const env           = process.env.NODE_ENV;
 const electron      = require('electron');
 const app           = electron.app;
-const window        = require('electron-window');
+const BrowserWindow = electron.BrowserWindow;
 const config        = require('./config/appConfig')(env);
 
 // Report crashes to our server.
@@ -26,22 +26,20 @@ app.on('window-all-closed', function closeAll() {
 // initialization and is ready to create browser windows.
 app.on('ready', function ready() {
     // Create the browser window.
-    mainWindow = window.createWindow({
+    mainWindow = new BrowserWindow({
         width   : 1100,
         height  : 700
     });
 
     // and load the index.html of the app.
-    mainWindow.loadURL('file://' + __dirname + '/ui/index.html');
-
-    console.log(config);
+    mainWindow.loadURL('file://' + __dirname + '/renderer/index.html');
 
     // Open the DevTools.
-    if (config.env == 'development') {
-        mainWindow.webContents.openDevTools({
-            detach : true
-        });
-    }
+    //if (config.env == 'development') {
+    //    mainWindow.webContents.openDevTools({
+    //        detach : true
+    //    });
+    //}
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function close() {
