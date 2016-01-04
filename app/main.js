@@ -35,11 +35,11 @@ app.on('ready', function ready() {
     mainWindow.loadURL('file://' + __dirname + '/renderer/index.html');
 
     // Open the DevTools.
-    //if (config.env == 'development') {
-    //    mainWindow.webContents.openDevTools({
-    //        detach : true
-    //    });
-    //}
+    if (config.env == 'development') {
+        mainWindow.webContents.openDevTools({
+            detach : true
+        });
+    }
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function close() {
