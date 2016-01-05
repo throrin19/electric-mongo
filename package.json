@@ -23,7 +23,9 @@
   "homepage": "https://github.com/throrin19/electric-mongo#readme",
   "dependencies": {
     "async": "^1.5.1",
+    "backbone": "^1.2.3",
     "electron-prebuilt": "^0.36.2",
+    "jquery": "^2.1.4",
     "path-extra": "^3.0.0",
     "underscore": "^1.8.3",
     "winston": "^2.1.1"
