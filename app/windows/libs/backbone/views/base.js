@@ -1,15 +1,13 @@
 'use strict';
 
-const electron      = require('electron');
-const remote        = electron.remote;
-const $             = remote.require('jquery');
-const _             = remote.require('underscore');
-const Backbone      = remote.require('backbone');
-const riot          = remote.require('riot');
-const viewManager   = remote.require('../viewManager');
+const $             = require('jquery');
+const _             = require('underscore');
+const Backbone      = require('backbone');
+const riot          = require('riot');
+const viewManager   = require('../viewManager');
 
 // chargement des tags communs
-remote.require('components/raw.tag');
+require('../../../components/raw.tag');
 
 Backbone.$ = $;
 

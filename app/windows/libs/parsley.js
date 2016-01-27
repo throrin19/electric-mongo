@@ -1,8 +1,6 @@
 'use strict';
 
-const electron  = require('electron');
-const remote    = electron.remote;
-const _         = remote.require('underscore');
+const _         = require('underscore');
 
 var Parsley = window.Parsley;
 
@@ -31,7 +29,7 @@ module.exports = {
         }
 
         var validators = [
-            remote.require('./parsley/multi')
+            require('./parsley/multi')
         ];
 
         _.each(validators, function (validator) {

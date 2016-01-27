@@ -41,6 +41,11 @@ module.exports = {
         this.attachEvents();
         this.attachIpc();
 
+
+        this.mainWindow.openDevTools({
+            detach : true
+        });
+
         // and load the index.html of the app.
         this.mainWindow.loadURL('file://' + __dirname + '/renderer/index.html');
         logger.info('initMainWindow done');

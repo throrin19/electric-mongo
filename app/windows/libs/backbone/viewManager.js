@@ -1,7 +1,7 @@
 'use strict';
 
-var _                   = remote.require('underscore'),
-    Backbone            = remote.require('backbone');
+var _                   = require('underscore'),
+    Backbone            = require('backbone');
 
 module.exports = _.extend({
     backboneMapArray : {},

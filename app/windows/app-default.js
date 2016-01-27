@@ -1,14 +1,13 @@
 'use strict';
 
-const electron  = require('electron');
-const remote    = electron.remote;
-const app       = remote.require('./init');
+const path      = require('path');
+const app       = require(path.join(__dirname, '../windows', 'init'));
 
-var $  = remote.require('jquery');
+var $  = require('jquery');
 
 $(function () {
     app.initApp(function afterInit() {
-        var Router = remote.require('./routers/main');
+        var Router = require(path.join(__dirname, '../windows/routers', 'main'));
 
         new Router();
     });

@@ -1,10 +1,10 @@
 'use strict';
 
-var $           = remote.require('jquery'),
-    Backbone    = remote.require('backbone'),
-    Router      = remote.require('libs/backbone/router/base.router'),
-    viewManager = remote.require('libs/backbone/viewManager'),
-    defaultView = remote.require('modules/index');
+var $           = require('jquery'),
+    Backbone    = require('backbone'),
+    Router      = require('../libs/backbone/router/base.router'),
+    viewManager = require('../libs/backbone/viewManager'),
+    defaultView = require('../modules/index');
 
 module.exports = Router.extend({
     routes : {
@@ -20,6 +20,7 @@ module.exports = Router.extend({
     },
     indexAction : function indexAction() {
         var view = viewManager.create('pageContent', defaultView, {});
+
         $('body').html(view.render().$el);
     }
 });
