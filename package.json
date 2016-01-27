@@ -24,10 +24,19 @@
   "dependencies": {
     "async": "^1.5.1",
     "backbone": "^1.2.3",
+    "backbone.subroute": "^0.4.6",
+    "bootstrap": "^3.3.6",
     "electron-prebuilt": "^0.36.2",
-    "jquery": "^2.1.4",
+    "jquery": "^2.2.0",
+    "parsleyjs": "^2.2.0",
     "path-extra": "^3.0.0",
+    "riot": "^2.3.13",
+    "terracykit": "^0.1.0",
     "underscore": "^1.8.3",
     "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.5"
   }
 }

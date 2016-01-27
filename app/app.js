@@ -30,8 +30,10 @@ module.exports = {
     },
     initMainWindow : function initMainWindow() {
         this.mainWindow = new BrowserWindow({
-            width   : 1100,
-            height  : 700
+            width           : 1100,
+            height          : 700,
+            'min-width'     : 1100,
+            'min-height'    : 700
         });
         this.subWindows = [];
         this.webContents = this.mainWindow.webContents;
