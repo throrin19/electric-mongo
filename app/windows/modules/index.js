@@ -6,6 +6,7 @@ const tpl       = require('../tpl/index.html');
 
 // tags
 
+
 module.exports = View.extend({
     className   : 'window',
     initialize  : function initialize(options) {
